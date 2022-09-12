@@ -37,7 +37,7 @@ resource "azurerm_resource_group" "key_vault" {
 resource "azurerm_key_vault" "jx" {
   count               = var.enabled ? 1 : 0
   location            = var.location
-  name                = local.key_vault_name
+  name                = var.key_vault_name
   resource_group_name = azurerm_resource_group.key_vault.0.name
   sku_name            = var.key_vault_sku
   tenant_id           = local.tenant_id
